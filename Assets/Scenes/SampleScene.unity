@@ -1760,11 +1760,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2094820466}
-  - component: {fileID: 2094820465}
-  - component: {fileID: 2094820467}
   - component: {fileID: 2094820468}
-  - component: {fileID: 2094820469}
+  - component: {fileID: 2094820467}
   - component: {fileID: 2094820470}
+  - component: {fileID: 2094820465}
+  - component: {fileID: 2094820469}
+  - component: {fileID: 2094820471}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1900,6 +1901,23 @@ NavMeshAgent:
   m_BaseOffset: 2
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &2094820471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2094820464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c37f499fd3981e44db296c38e2ab00b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnemiesLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  Bullets: []
+  GunHole: {fileID: 184675190}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
