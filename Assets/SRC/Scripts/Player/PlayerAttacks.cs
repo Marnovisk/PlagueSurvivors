@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -5,30 +6,27 @@ using UnityEngine;
 public class PlayerAttacks : MonoBehaviour
 {
     public LayerMask EnemiesLayer;
-    public List<WeaponScriptable> Bullets;
+    public List<WeaponXScriptable> Bullets;
+    public List<WeaponXScriptable> _AllBullets;
     public GameObject GunHole;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        InvokeRepeating("GetClosestTarget", 0, 0);
+        
+        InvokeRepeating("GetTarget", 0, 1);
     }
 
     public void AddWeapon()
     {
         
+
     }
 
-    void UseGun(Collider closestTarget)
-    {       
 
-        var projectile = Instantiate(Bullets[0].Prefab, GunHole.transform.position, Quaternion.identity);
-        projectile.GetComponent<Weapon>().GetTarget(closestTarget.transform);
-        
-    }
-
-    void GetClosestTarget()
+    public void GetTarget()
     {
-        var nearbyEnemies = Physics.OverlapSphere(transform.position, 5.0f, EnemiesLayer);
+        var nearbyEnemies = Physics.OverlapSphere(transform.position, 100.0f, EnemiesLayer);
+
 
         if (!(nearbyEnemies.Length <= 0))
         {
@@ -46,7 +44,19 @@ public class PlayerAttacks : MonoBehaviour
                 }
             }
 
-            UseGun(closestTarget);
+            foreach (WeaponXScriptable weapon in Bullets)
+            {
+                StartCoroutine(UseGun(weapon, closestTarget));
+            }           
+
         }
+    }
+
+    public IEnumerator UseGun(WeaponXScriptable Wweapon, Collider WclosestTarget)
+    {
+        var projectile = Instantiate(Wweapon.Prefab, GunHole.transform.position, Quaternion.identity);
+        projectile.GetComponent<Weapon>().GetTarget(WclosestTarget.transform, Wweapon);
+
+        yield return new WaitForSeconds(Wweapon.cooldown);
     }
 }

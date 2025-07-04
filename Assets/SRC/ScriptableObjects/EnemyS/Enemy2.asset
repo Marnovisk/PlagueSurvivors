@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7d26c5979037c64b82907de7bf827b6, type: 3}
+  m_Name: Enemy2
+  m_EditorClassIdentifier: 
+  Status:
+    Health: 65
+    Armor: 0
+    MagicResist: 0
+  speed: 7
+  Bullet: {fileID: 0}
+  AttackRange: 2
+  AttackSpeed: 3
+  AttackDamage: 0f00000014000000
+  AttackKind: 1
+  GFX: {fileID: 1202964117527596540, guid: 2ab840be9370904499ef950ea260fb63, type: 3}

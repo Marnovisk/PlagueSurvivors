@@ -1,6 +1,4 @@
-using System.Runtime.ConstrainedExecution;
 using UnityEngine;
-using static UnityEditor.PlayerSettings;
 
 public class PlayerController : MonoBehaviour
 {
@@ -13,7 +11,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Vector3 direction = new Vector3(joystick.Horizontal, 0, joystick.Vertical);
-        this.transform.rotation = Quaternion.LookRotation(direction);
+        //this.transform.rotation = Quaternion.LookRotation(direction);
 
         //transform.Translate(direction * moveSpeed * Time.deltaTime);
     }
@@ -33,6 +31,7 @@ public class PlayerController : MonoBehaviour
         pos.z += moveSpeed * ver * Time.deltaTime;
         transform.position = pos;
     }
+
 
     void CamBasedMove()
     {
